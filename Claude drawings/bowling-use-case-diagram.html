@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Bowling System — Use Case Diagram</title>
+<style>
+  body { font-family: sans-serif; background: #f5f5f5; display: flex; justify-content: center; padding: 40px; }
+  svg { background: white; border: 1px solid #ccc; }
+</style>
+</head>
+<body>
+<svg width="900" height="640" viewBox="0 0 900 640">
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#555"/>
+    </marker>
+    <marker id="arrow-open" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+      <polyline points="0 0, 9 4, 0 8" fill="none" stroke="#555" stroke-width="1.2"/>
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="450" y="28" text-anchor="middle" font-size="15" font-family="monospace" font-weight="bold">Bowling System — Use Case Diagram</text>
+
+  <!-- System boundary -->
+  <rect x="180" y="45" width="530" height="560" rx="6" fill="none" stroke="#333" stroke-width="2"/>
+  <text x="445" y="65" text-anchor="middle" font-size="12" font-family="monospace" fill="#333">«system» Bowling Management System</text>
+
+  <!-- ══════════════ USE CASES ══════════════ -->
+
+  <!-- View Score & Turn Order -->
+  <ellipse cx="370" cy="130" rx="110" ry="24" fill="#d0e8ff" stroke="#4488cc" stroke-width="1.5"/>
+  <text x="370" y="134" text-anchor="middle" font-size="11" font-family="monospace">View Score &amp; Turn Order</text>
+
+  <!-- Skip Bowler -->
+  <ellipse cx="530" cy="210" rx="90" ry="24" fill="#d4f0d4" stroke="#44aa44" stroke-width="1.5"/>
+  <text x="530" y="214" text-anchor="middle" font-size="11" font-family="monospace">Skip Bowler</text>
+
+  <!-- Correct Score -->
+  <ellipse cx="530" cy="290" rx="90" ry="24" fill="#d4f0d4" stroke="#44aa44" stroke-width="1.5"/>
+  <text x="530" y="294" text-anchor="middle" font-size="11" font-family="monospace">Correct Score</text>
+
+  <!-- Request Pin Reset -->
+  <ellipse cx="530" cy="370" rx="100" ry="24" fill="#d4f0d4" stroke="#44aa44" stroke-width="1.5"/>
+  <text x="530" y="374" text-anchor="middle" font-size="11" font-family="monospace">Request Pin Reset</text>
+
+  <!-- Check In Bowler -->
+  <ellipse cx="370" cy="430" rx="100" ry="24" fill="#fff4cc" stroke="#ccaa00" stroke-width="1.5"/>
+  <text x="370" y="434" text-anchor="middle" font-size="11" font-family="monospace">Check In Bowler</text>
+
+  <!-- Check Out / Payment -->
+  <ellipse cx="370" cy="510" rx="100" ry="24" fill="#fff4cc" stroke="#ccaa00" stroke-width="1.5"/>
+  <text x="370" y="514" text-anchor="middle" font-size="11" font-family="monospace">Check Out Bowler</text>
+
+  <!-- Enable / Disable Lane -->
+  <ellipse cx="370" cy="330" rx="105" ry="24" fill="#eeddff" stroke="#8844cc" stroke-width="1.5"/>
+  <text x="370" y="334" text-anchor="middle" font-size="11" font-family="monospace">Enable / Disable Lane</text>
+
+  <!-- Monitor All Lanes -->
+  <ellipse cx="370" cy="240" rx="105" ry="24" fill="#eeddff" stroke="#8844cc" stroke-width="1.5"/>
+  <text x="370" y="244" text-anchor="middle" font-size="11" font-family="monospace">Monitor All Lanes</text>
+
+  <!-- Record Transaction (POS) -->
+  <ellipse cx="530" cy="510" rx="105" ry="24" fill="#f0d4d4" stroke="#aa4444" stroke-width="1.5"/>
+  <text x="530" y="514" text-anchor="middle" font-size="11" font-family="monospace">Record Transaction</text>
+
+  <!-- ══════════════ ACTORS (left) ══════════════ -->
+
+  <!-- Actor: Bowler -->
+  <!-- head -->
+  <circle cx="80" cy="115" r="14" fill="none" stroke="#333" stroke-width="1.8"/>
+  <!-- body -->
+  <line x1="80" y1="129" x2="80" y2="165" stroke="#333" stroke-width="1.8"/>
+  <!-- arms -->
+  <line x1="55" y1="145" x2="105" y2="145" stroke="#333" stroke-width="1.8"/>
+  <!-- legs -->
+  <line x1="80" y1="165" x2="60" y2="195" stroke="#333" stroke-width="1.8"/>
+  <line x1="80" y1="165" x2="100" y2="195" stroke="#333" stroke-width="1.8"/>
+  <text x="80" y="212" text-anchor="middle" font-size="12" font-family="monospace">Bowler</text>
+
+  <!-- Actor: Lane Attendant -->
+  <circle cx="80" cy="295" r="14" fill="none" stroke="#333" stroke-width="1.8"/>
+  <line x1="80" y1="309" x2="80" y2="345" stroke="#333" stroke-width="1.8"/>
+  <line x1="55" y1="325" x2="105" y2="325" stroke="#333" stroke-width="1.8"/>
+  <line x1="80" y1="345" x2="60" y2="375" stroke="#333" stroke-width="1.8"/>
+  <line x1="80" y1="345" x2="100" y2="375" stroke="#333" stroke-width="1.8"/>
+  <text x="80" y="391" text-anchor="middle" font-size="12" font-family="monospace">Lane</text>
+  <text x="80" y="405" text-anchor="middle" font-size="12" font-family="monospace">Attendant</text>
+
+  <!-- Actor: Cashier -->
+  <circle cx="80" cy="470" r="14" fill="none" stroke="#333" stroke-width="1.8"/>
+  <line x1="80" y1="484" x2="80" y2="520" stroke="#333" stroke-width="1.8"/>
+  <line x1="55" y1="500" x2="105" y2="500" stroke="#333" stroke-width="1.8"/>
+  <line x1="80" y1="520" x2="60" y2="550" stroke="#333" stroke-width="1.8"/>
+  <line x1="80" y1="520" x2="100" y2="550" stroke="#333" stroke-width="1.8"/>
+  <text x="80" y="566" text-anchor="middle" font-size="12" font-family="monospace">Cashier</text>
+
+  <!-- ══════════════ ACTORS (right) ══════════════ -->
+
+  <!-- Actor: Manager -->
+  <circle cx="820" cy="200" r="14" fill="none" stroke="#333" stroke-width="1.8"/>
+  <line x1="820" y1="214" x2="820" y2="250" stroke="#333" stroke-width="1.8"/>
+  <line x1="795" y1="230" x2="845" y2="230" stroke="#333" stroke-width="1.8"/>
+  <line x1="820" y1="250" x2="800" y2="280" stroke="#333" stroke-width="1.8"/>
+  <line x1="820" y1="250" x2="840" y2="280" stroke="#333" stroke-width="1.8"/>
+  <text x="820" y="296" text-anchor="middle" font-size="12" font-family="monospace">Manager</text>
+
+  <!-- Actor: POS System -->
+  <rect x="795" y="480" width="50" height="50" fill="none" stroke="#333" stroke-width="1.8"/>
+  <text x="820" y="548" text-anchor="middle" font-size="12" font-family="monospace">«system»</text>
+  <text x="820" y="562" text-anchor="middle" font-size="12" font-family="monospace">POS</text>
+
+  <!-- Actor: Pinsetter -->
+  <rect x="795" y="345" width="50" height="50" fill="none" stroke="#333" stroke-width="1.8"/>
+  <text x="820" y="410" text-anchor="middle" font-size="12" font-family="monospace">«device»</text>
+  <text x="820" y="424" text-anchor="middle" font-size="12" font-family="monospace">Pinsetter</text>
+
+  <!-- ══════════════ ASSOCIATIONS ══════════════ -->
+
+  <!-- Bowler → View Score -->
+  <line x1="94" y1="130" x2="260" y2="130" stroke="#555" stroke-width="1.3"/>
+
+  <!-- Lane Attendant → Skip Bowler -->
+  <line x1="94" y1="310" x2="440" y2="218" stroke="#555" stroke-width="1.3"/>
+
+  <!-- Lane Attendant → Correct Score -->
+  <line x1="94" y1="320" x2="440" y2="292" stroke="#555" stroke-width="1.3"/>
+
+  <!-- Lane Attendant → Request Pin Reset -->
+  <line x1="94" y1="335" x2="430" y2="368" stroke="#555" stroke-width="1.3"/>
+
+  <!-- Cashier → Check In -->
+  <line x1="94" y1="476" x2="270" y2="434" stroke="#555" stroke-width="1.3"/>
+
+  <!-- Cashier → Check Out -->
+  <line x1="94" y1="490" x2="270" y2="510" stroke="#555" stroke-width="1.3"/>
+
+  <!-- Manager → Monitor All Lanes -->
+  <line x1="806" y1="218" x2="475" y2="244" stroke="#555" stroke-width="1.3"/>
+
+  <!-- Manager → Enable/Disable Lane -->
+  <line x1="806" y1="228" x2="475" y2="335" stroke="#555" stroke-width="1.3"/>
+
+  <!-- Pinsetter → Request Pin Reset -->
+  <line x1="795" y1="368" x2="630" y2="370" stroke="#555" stroke-width="1.3"/>
+
+  <!-- POS → Record Transaction -->
+  <line x1="795" y1="505" x2="635" y2="510" stroke="#555" stroke-width="1.3"/>
+
+  <!-- «include»: Check Out → Record Transaction -->
+  <line x1="470" y1="510" x2="425" y2="510" stroke="#555" stroke-width="1.3" stroke-dasharray="5,4" marker-end="url(#arrow)"/>
+  <text x="448" y="504" text-anchor="middle" font-size="9" font-family="monospace" fill="#555">«include»</text>
+
+  <!-- «extend»: Bowler extends View Score to also see Monitor (omit for cleanliness, not needed) -->
+
+</svg>
+</body>
+</html>

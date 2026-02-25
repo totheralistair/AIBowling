@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Bowling — Cockburn Context Diagram</title>
+<style>
+  body { font-family: monospace; background: #f5f5f5; display: flex; justify-content: center; padding: 40px; }
+  svg { background: white; border: 1px solid #ccc; }
+</style>
+</head>
+<body>
+<svg width="860" height="760" viewBox="0 0 860 760">
+  <defs>
+    <marker id="arr" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#444"/>
+    </marker>
+  </defs>
+
+  <text x="430" y="28" text-anchor="middle" font-size="14" font-weight="bold">Bowling System — Cockburn Context Diagram</text>
+
+  <!-- ═══ SYSTEM BOXES ═══ -->
+
+  <!-- Front Desk App -->
+  <rect x="310" y="55" width="160" height="52" rx="4" fill="#eeddff" stroke="#8844cc" stroke-width="2"/>
+  <text x="390" y="77" text-anchor="middle" font-size="12">Front Desk App</text>
+  <text x="390" y="95" text-anchor="middle" font-size="10" fill="#666">check-in · checkout · payment</text>
+
+  <!-- Central Computer -->
+  <rect x="310" y="230" width="160" height="52" rx="4" fill="#d0e8ff" stroke="#4488cc" stroke-width="2"/>
+  <text x="390" y="252" text-anchor="middle" font-size="12">Central Computer</text>
+  <text x="390" y="270" text-anchor="middle" font-size="10" fill="#666">lane control · coordination</text>
+
+  <!-- Lane Governor -->
+  <rect x="310" y="430" width="160" height="52" rx="4" fill="#d4f0d4" stroke="#44aa44" stroke-width="2"/>
+  <text x="390" y="452" text-anchor="middle" font-size="12">Lane Governor ×N</text>
+  <text x="390" y="470" text-anchor="middle" font-size="10" fill="#666">per lane pair · local service</text>
+
+  <!-- Lane Tablet App -->
+  <rect x="310" y="630" width="160" height="52" rx="4" fill="#fff4cc" stroke="#ccaa00" stroke-width="2"/>
+  <text x="390" y="652" text-anchor="middle" font-size="12">Lane Tablet App</text>
+  <text x="390" y="670" text-anchor="middle" font-size="10" fill="#666">score · turn · controls</text>
+
+  <!-- ═══ DOWNWARD ARROWS between internal systems ═══ -->
+
+  <!-- Front Desk App ↓ Central Computer -->
+  <line x1="390" y1="107" x2="390" y2="230" stroke="#444" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="396" y="173" font-size="9" fill="#555">manages via</text>
+
+  <!-- Central Computer ↓ Lane Governor -->
+  <line x1="390" y1="282" x2="390" y2="430" stroke="#444" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="396" y="360" font-size="9" fill="#555">controls</text>
+
+  <!-- Lane Governor ↓ Lane Tablet App -->
+  <line x1="390" y1="482" x2="390" y2="630" stroke="#444" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="396" y="560" font-size="9" fill="#555">drives</text>
+
+  <!-- ═══ PRIMARY ACTORS + USE CASE LABELS ═══ -->
+
+  <!-- Cashier → Front Desk App -->
+  <circle cx="80" cy="68" r="13" fill="none" stroke="#333" stroke-width="1.8"/>
+  <line x1="80" y1="81" x2="80" y2="113" stroke="#333" stroke-width="1.8"/>
+  <line x1="58" y1="97" x2="102" y2="97" stroke="#333" stroke-width="1.8"/>
+  <line x1="80" y1="113" x2="62" y2="138" stroke="#333" stroke-width="1.8"/>
+  <line x1="80" y1="113" x2="98" y2="138" stroke="#333" stroke-width="1.8"/>
+  <text x="80" y="153" text-anchor="middle" font-size="11">Cashier</text>
+  <!-- arrow -->
+  <line x1="93" y1="81" x2="310" y2="81" stroke="#444" stroke-width="1.3" marker-end="url(#arr)"/>
+  <!-- use cases above arrow -->
+  <text x="200" y="71" text-anchor="middle" font-size="9" fill="#222">check in bowler</text>
+  <text x="200" y="61" text-anchor="middle" font-size="9" fill="#222">check out bowler</text>
+
+  <!-- Manager → Central Computer -->
+  <circle cx="80" cy="243" r="13" fill="none" stroke="#333" stroke-width="1.8"/>
+  <line x1="80" y1="256" x2="80" y2="288" stroke="#333" stroke-width="1.8"/>
+  <line x1="58" y1="272" x2="102" y2="272" stroke="#333" stroke-width="1.8"/>
+  <line x1="80" y1="288" x2="62" y2="313" stroke="#333" stroke-width="1.8"/>
+  <line x1="80" y1="288" x2="98" y2="313" stroke="#333" stroke-width="1.8"/>
+  <text x="80" y="328" text-anchor="middle" font-size="11">Manager</text>
+  <!-- arrow -->
+  <line x1="93" y1="256" x2="310" y2="256" stroke="#444" stroke-width="1.3" marker-end="url(#arr)"/>
+  <!-- use cases above arrow -->
+  <text x="200" y="246" text-anchor="middle" font-size="9" fill="#222">monitor all lanes</text>
+  <text x="200" y="236" text-anchor="middle" font-size="9" fill="#222">enable / disable lane</text>
+
+  <!-- Lane Attendant → Lane Governor -->
+  <circle cx="80" cy="443" r="13" fill="none" stroke="#333" stroke-width="1.8"/>
+  <line x1="80" y1="456" x2="80" y2="488" stroke="#333" stroke-width="1.8"/>
+  <line x1="58" y1="472" x2="102" y2="472" stroke="#333" stroke-width="1.8"/>
+  <line x1="80" y1="488" x2="62" y2="513" stroke="#333" stroke-width="1.8"/>
+  <line x1="80" y1="488" x2="98" y2="513" stroke="#333" stroke-width="1.8"/>
+  <text x="80" y="528" text-anchor="middle" font-size="11">Lane</text>
+  <text x="80" y="541" text-anchor="middle" font-size="11">Attendant</text>
+  <!-- arrow -->
+  <line x1="93" y1="456" x2="310" y2="456" stroke="#444" stroke-width="1.3" marker-end="url(#arr)"/>
+  <!-- use cases above arrow -->
+  <text x="200" y="446" text-anchor="middle" font-size="9" fill="#222">skip bowler</text>
+  <text x="200" y="436" text-anchor="middle" font-size="9" fill="#222">correct score</text>
+  <text x="200" y="426" text-anchor="middle" font-size="9" fill="#222">request pin reset</text>
+
+  <!-- Bowler → Lane Tablet App -->
+  <circle cx="80" cy="643" r="13" fill="none" stroke="#333" stroke-width="1.8"/>
+  <line x1="80" y1="656" x2="80" y2="688" stroke="#333" stroke-width="1.8"/>
+  <line x1="58" y1="672" x2="102" y2="672" stroke="#333" stroke-width="1.8"/>
+  <line x1="80" y1="688" x2="62" y2="713" stroke="#333" stroke-width="1.8"/>
+  <line x1="80" y1="688" x2="98" y2="713" stroke="#333" stroke-width="1.8"/>
+  <text x="80" y="728" text-anchor="middle" font-size="11">Bowler</text>
+  <!-- arrow -->
+  <line x1="93" y1="656" x2="310" y2="656" stroke="#444" stroke-width="1.3" marker-end="url(#arr)"/>
+  <!-- use cases above arrow -->
+  <text x="200" y="646" text-anchor="middle" font-size="9" fill="#222">view score &amp; turn order</text>
+
+  <!-- ═══ SECONDARY ACTORS — right (external) ═══ -->
+
+  <!-- POS System -->
+  <rect x="618" y="219" width="90" height="42" rx="3" fill="#e8e8e8" stroke="#999" stroke-width="1.8"/>
+  <text x="663" y="236" text-anchor="middle" font-size="11">«system»</text>
+  <text x="663" y="252" text-anchor="middle" font-size="11">POS</text>
+  <line x1="470" y1="256" x2="618" y2="240" stroke="#444" stroke-width="1.3" marker-end="url(#arr)"/>
+  <text x="544" y="243" text-anchor="middle" font-size="9" fill="#222">record transaction</text>
+
+  <!-- Pinsetter -->
+  <rect x="618" y="420" width="90" height="42" rx="3" fill="#f0d4d4" stroke="#aa4444" stroke-width="1.8"/>
+  <text x="663" y="437" text-anchor="middle" font-size="11">«device»</text>
+  <text x="663" y="453" text-anchor="middle" font-size="11">Pinsetter</text>
+  <line x1="470" y1="456" x2="618" y2="441" stroke="#444" stroke-width="1.3" marker-end="url(#arr)"/>
+  <text x="544" y="443" text-anchor="middle" font-size="9" fill="#222">set up pins</text>
+
+  <!-- ═══ LEGEND ═══ -->
+  <line x1="50" y1="710" x2="110" y2="710" stroke="#444" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="118" y="714" font-size="10" fill="#444">primary actor initiates</text>
+  <line x1="310" y1="710" x2="370" y2="710" stroke="#444" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="378" y="714" font-size="10" fill="#444">internal system calls subordinate (downward)</text>
+  <rect x="50" y="726" width="14" height="14" fill="#e8e8e8" stroke="#999"/>
+  <text x="70" y="737" font-size="10" fill="#444">external secondary actor</text>
+
+</svg>
+</body>
+</html>
