@@ -5,6 +5,7 @@ class MockLanesManager {
 
   bowlerArrived(name) {
     this.arrivals.push(name);
+    return name;
   }
 }
 

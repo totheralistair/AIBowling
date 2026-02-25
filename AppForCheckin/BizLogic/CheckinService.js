@@ -8,7 +8,7 @@ class CheckinService {
   }
 
   checkinBowler(name) {
-    this.lanesManager.bowlerArrived(name);
+    return this.lanesManager.bowlerArrived(name);
   }
 }
 
