@@ -5,4 +5,9 @@ describe('BowlersAtLaneService', () => {
     const service = new BowlersAtLaneService();
     expect(service.greeting()).toBe("Hello from Bowler At Lane");
   });
+
+  test('test_register_bowler_returns_name', () => {
+    const service = new BowlersAtLaneService();
+    expect(service.registerBowler("Alice")).toBe("Alice");
+  });
 });
