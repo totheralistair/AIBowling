@@ -91,9 +91,9 @@
 
 ### Slice 2 — activate returns ack
 - `LaneGovernorService.activate()` returns `"OK"`
-- No secondary actor yet
+- No constructor arguments
 - Test: `test_activate_returns_ack`
-- Status: pending
+- Status: in progress
 
 ### Slice 3 — bowlerArrived notifies Pinsetter (mock)
 - `LaneGovernorService.bowlerArrived()` calls `MockPinsetter.reset()`, returns ack
