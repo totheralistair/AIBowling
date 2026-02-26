@@ -76,6 +76,14 @@ For each app, in order:
 
 ---
 
+## Phase 1 vs Phase 2
+
+**Phase 1 — Four hexagons (complete):** Each app is a proper hexagon with all ports defined and tested with mocks. Apps are isolated — no real connections between them.
+
+**Phase 2 — Walking skeleton (not started):** Replace mocks with real adapters one boundary at a time until a single end-to-end use case flows through all four live apps. Only then is the walking skeleton achieved.
+
+---
+
 ## Step 5 — Verify the Skeleton
 
 Once all apps have completed nano-slices A and B for all their secondary actors, trace the full business use case narrative from Step 1 through the code. Every handoff between apps should have a corresponding method and mock. If any handoff is missing, add the slice.
@@ -93,17 +101,23 @@ Once all apps have completed nano-slices A and B for all their secondary actors,
 ### Step 3 — Hexagonal Structure
 - AppForCheckin: **done**
 - AppForLanesManager: **done**
-- AppForLaneGovernor: **done** (folders exist, no code yet)
-- AppForBowlersAtLane: **done** (folders exist, no code yet)
+- AppForLaneGovernor: **done**
+- AppForBowlersAtLane: **done**
 
 ### Step 4 — Nano-Slicing
 
 | App | Slice A (greeting) | Slice B1 (first secondary actor) | Slice B2 (second secondary actor) |
 |---|---|---|---|
 | AppForCheckin | done | done — MockLanesManager | n/a |
-| AppForLanesManager | done | not started — MockLaneGovernor | not started — MockPaymentGateway |
-| AppForLaneGovernor | done | not started — MockBowlerAtLane | n/a |
-| AppForBowlersAtLane | not started | not started — MockLaneGovernor | not started — MockLanesManager |
+| AppForLanesManager | done | done — MockLaneGovernor | done — MockPaymentGateway |
+| AppForLaneGovernor | done | done — MockBowlerAtLane | n/a |
+| AppForBowlersAtLane | done | done — MockLaneGovernor | done — MockLanesManager |
+
+**Phase 1 complete: all 4 apps are proper hexagons with all primary and secondary ports defined and tested with mocks. The apps are NOT yet connected to each other.**
 
 ### Step 5 — Full skeleton trace
 - Status: **not started**
+- Next actions before connecting:
+  1. Verify method signatures match across all app boundaries (e.g. `bowlerArrived()` in MockLaneGovernor matches `bowlerArrived()` in LaneGovernorService)
+  2. Replace mocks with real adapters one boundary at a time
+  3. Trace the full use case narrative end to end through live code
