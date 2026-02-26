@@ -4,7 +4,7 @@ class CheckinService {
   }
 
   greeting() {
-    return "Checkin App ready";
+    return "Hello from Checkin App";
   }
 
   checkinBowler(name) {

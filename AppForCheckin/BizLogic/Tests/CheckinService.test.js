@@ -4,7 +4,7 @@ const MockLanesManager = require('../../Adapters/OutgoingAdapters/MockLanesManag
 describe('CheckinService', () => {
   test('test_it_returns_a_greeting', () => {
     const service = new CheckinService(new MockLanesManager());
-    expect(service.greeting()).toBe("Checkin App ready");
+    expect(service.greeting()).toBe("Hello from Checkin App");
   });
 
   test('test_checkin_bowler_notifies_lanes_manager', () => {

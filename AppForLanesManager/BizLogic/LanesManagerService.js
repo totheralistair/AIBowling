@@ -1,6 +1,6 @@
 class LanesManagerService {
   greeting() {
-    return "Lanes Manager ready";
+    return "Hello from Lanes Manager";
   }
 
   checkinBowler(name) {
