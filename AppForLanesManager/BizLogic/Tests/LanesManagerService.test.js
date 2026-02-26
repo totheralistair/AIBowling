@@ -21,4 +21,9 @@ describe('LanesManagerService', () => {
     const service = new LanesManagerService(new MockLaneGovernor());
     expect(service.assignLane("Alice")).toEqual({ name: "Alice", lane: 5 });
   });
+
+  test('test_lane_freed_returns_ack', () => {
+    const service = new LanesManagerService();
+    expect(service.laneFreed()).toBe("OK");
+  });
 });

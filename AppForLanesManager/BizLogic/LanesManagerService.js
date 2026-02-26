@@ -15,6 +15,10 @@ class LanesManagerService {
     this.laneGovernor.activate();
     return { name: name, lane: 5 };
   }
+
+  laneFreed() {
+    return "OK";
+  }
 }
 
 module.exports = LanesManagerService;
