@@ -73,11 +73,12 @@
 - Status: pending
 
 ### Slice 6 — collectPayment notifies Payment Gateway (mock)
-- `LanesManagerService.collectPayment(amount)` calls `MockPaymentGateway.charge(amount)`, returns ack
+- `LanesManagerService.collectPayment(amount)` calls `paymentGateway.charge(amount)`, returns `"OK"`
+- `MockPaymentGateway.charge(amount)` returns `"OK"`
 - `MockPaymentGateway` lives in `Adapters/OutgoingAdapters/`
-- Constructor extended with MockPaymentGateway
+- Constructor extended with `paymentGateway` alongside existing `laneGovernor`
 - Test: `test_collect_payment_notifies_payment_gateway`
-- Status: pending
+- Status: in progress
 
 ---
 

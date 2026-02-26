@@ -1,6 +1,7 @@
 class LanesManagerService {
-  constructor(laneGovernor) {
+  constructor(laneGovernor, paymentGateway) {
     this.laneGovernor = laneGovernor;
+    this.paymentGateway = paymentGateway;
   }
 
   greeting() {
@@ -18,6 +19,10 @@ class LanesManagerService {
 
   laneFreed() {
     return "OK";
+  }
+
+  collectPayment(amount) {
+    return this.paymentGateway.charge(amount);
   }
 }
 

@@ -1,5 +1,6 @@
 const LanesManagerService = require('../LanesManagerService');
 const MockLaneGovernor = require('../../Adapters/OutgoingAdapters/MockLaneGovernor');
+const MockPaymentGateway = require('../../Adapters/OutgoingAdapters/MockPaymentGateway');
 
 describe('LanesManagerService', () => {
   test('test_it_returns_a_greeting', () => {
@@ -25,5 +26,10 @@ describe('LanesManagerService', () => {
   test('test_lane_freed_returns_ack', () => {
     const service = new LanesManagerService();
     expect(service.laneFreed()).toBe("OK");
+  });
+
+  test('test_collect_payment_notifies_payment_gateway', () => {
+    const service = new LanesManagerService(new MockLaneGovernor(), new MockPaymentGateway());
+    expect(service.collectPayment(50)).toBe("OK");
   });
 });
