@@ -116,6 +116,7 @@
 
 ### Slice 1 — Greeting
 - `BowlersAtLaneService.greeting()` returns `"Hello from Bowler At Lane"`
+- No constructor arguments
 - Test: `test_it_returns_a_greeting`
 - Status: pending
 
