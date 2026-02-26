@@ -25,6 +25,14 @@ AppForXxx/
   jest.config.js
 ```
 
+## Working Sequence (repeat for every slice)
+
+1. **Dialog** — discuss the new code and tests with Claude before anything is written. Agree on what will be created.
+2. **SLICES.md** — Claude adds the new slice to SLICES.md and waits for review and approval before writing any code.
+3. **Code** — Claude creates the code and tests, then says: "Run `npm test` in AppForXxx."
+4. **Local test passes** — Claude gives the git push instructions. Do not push until local tests pass.
+5. **GitHub Actions** — push, then check the Actions tab. Report any errors back to Claude.
+
 ## Slice Sequence (repeat for each app)
 
 ### Slice 1 — Constant return, no secondary actor

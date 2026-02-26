@@ -33,5 +33,5 @@
 - Primary actor: Manager
 - No secondary actor
 - Test: `test_manager_assigns_lane_returns_name_and_lane_number`
-- Status: in progress
+- Status: done
 
