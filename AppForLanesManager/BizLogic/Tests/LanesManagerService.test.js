@@ -1,4 +1,5 @@
 const LanesManagerService = require('../LanesManagerService');
+const MockLaneGovernor = require('../../Adapters/OutgoingAdapters/MockLaneGovernor');
 
 describe('LanesManagerService', () => {
   test('test_it_returns_a_greeting', () => {
@@ -12,7 +13,12 @@ describe('LanesManagerService', () => {
   });
 
   test('test_manager_assigns_lane_returns_name_and_lane_number', () => {
-    const service = new LanesManagerService();
+    const service = new LanesManagerService(new MockLaneGovernor());
+    expect(service.assignLane("Alice")).toEqual({ name: "Alice", lane: 5 });
+  });
+
+  test('test_assign_lane_notifies_lane_governor', () => {
+    const service = new LanesManagerService(new MockLaneGovernor());
     expect(service.assignLane("Alice")).toEqual({ name: "Alice", lane: 5 });
   });
 });

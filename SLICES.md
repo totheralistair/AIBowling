@@ -58,11 +58,13 @@
 - Status: done
 
 ### Slice 4 — assignLane notifies Lane Governor (mock)
-- `LanesManagerService.assignLane(name)` calls `MockLaneGovernor.activate()`, returns ack
+- `LanesManagerService.assignLane(name)` calls `laneGovernor.activate()`, returns `{ name, lane: 5 }`
+- `MockLaneGovernor.activate()` returns `"OK"`
 - `MockLaneGovernor` lives in `Adapters/OutgoingAdapters/`
-- Constructor extended with MockLaneGovernor
+- Constructor introduced with `laneGovernor`
+- Slices 1, 2, 3 tests stay with no constructor argument
 - Test: `test_assign_lane_notifies_lane_governor`
-- Status: pending
+- Status: in progress
 
 ### Slice 5 — laneFreed from Bowler At Lane frees up the lane
 - `LanesManagerService.laneFreed()` returns ack

@@ -1,4 +1,8 @@
 class LanesManagerService {
+  constructor(laneGovernor) {
+    this.laneGovernor = laneGovernor;
+  }
+
   greeting() {
     return "Hello from Lanes Manager";
   }
@@ -8,6 +12,7 @@ class LanesManagerService {
   }
 
   assignLane(name) {
+    this.laneGovernor.activate();
     return { name: name, lane: 5 };
   }
 }
