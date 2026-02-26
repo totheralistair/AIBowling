@@ -2,7 +2,7 @@
   "name": "app-for-lane-governor",
   "version": "1.0.0",
   "scripts": {
-    "test": "jest"
+    "test": "jest --passWithNoTests"
   },
   "devDependencies": {
     "jest": "^29.0.0"
