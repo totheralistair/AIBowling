@@ -103,11 +103,12 @@
 - Status: in progress
 
 ### Slice 4 — pinSituation pushes to Bowler At Lane (mock)
-- `LaneGovernorService.pinSituation(pins)` calls `MockBowlerAtLane.receivePinSituation(pins)`, returns pins
+- `LaneGovernorService.pinSituation(pins)` calls `bowlerAtLane.receivePinSituation(pins)`, returns `pins`
+- `MockBowlerAtLane.receivePinSituation(pins)` returns `pins`
 - `MockBowlerAtLane` lives in `Adapters/OutgoingAdapters/`
-- Constructor extended with MockBowlerAtLane
+- Constructor introduced with `bowlerAtLane`
 - Test: `test_pin_situation_pushes_to_bowler_at_lane`
-- Status: pending
+- Status: in progress
 
 ---
 

@@ -1,4 +1,8 @@
 class LaneGovernorService {
+  constructor(bowlerAtLane) {
+    this.bowlerAtLane = bowlerAtLane;
+  }
+
   greeting() {
     return "Hello from Lane Governor";
   }
@@ -9,6 +13,10 @@ class LaneGovernorService {
 
   bowlerArrived() {
     return "OK";
+  }
+
+  pinSituation(pins) {
+    return this.bowlerAtLane.receivePinSituation(pins);
   }
 }
 
