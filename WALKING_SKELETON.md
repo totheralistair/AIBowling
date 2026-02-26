@@ -80,7 +80,28 @@ For each app, in order:
 
 **Phase 1 — Four hexagons (complete):** Each app is a proper hexagon with all ports defined and tested with mocks. Apps are isolated — no real connections between them.
 
-**Phase 2 — Walking skeleton (not started):** Replace mocks with real adapters one boundary at a time until a single end-to-end use case flows through all four live apps. Only then is the walking skeleton achieved.
+**Phase 2 — Walking skeleton (in progress):** Connect apps one pair at a time using HTTP. Each app runs as an Express server. Real outgoing adapters make HTTP calls to replace the mocks. Connect and test one pair before moving to the next.
+
+### Phase 2 — Connection order (one pair at a time)
+
+| Step | Pair | Caller method | Test |
+|---|---|---|---|
+| 1 | Checkin → LanesManager | `checkinBowler(name)` | curl POST /checkinBowler → `{"name":"Alice"}` |
+| 2 | LanesManager → LaneGovernor | `activate()` | curl POST /assignLane → LaneGovernor activates |
+| 3 | LaneGovernor → BowlersAtLane | `pinSituation(pins)` | curl POST /pinSituation → BowlersAtLane receives pins |
+| 4 | BowlersAtLane → LaneGovernor | `bowlerArrived()` | curl POST /bowlerArrived → LaneGovernor notified |
+| 5 | BowlersAtLane → LanesManager | `sessionEnded()` | curl POST /sessionEnded → LanesManager frees lane |
+
+### Port assignments
+- AppForCheckin: 3001
+- AppForLanesManager: 3002
+- AppForLaneGovernor: 3003
+- AppForBowlersAtLane: 3004
+
+### Per-app additions (same pattern for each)
+- `Adapters/IncomingAdapters/HttpServer.js` — Express server, routes to BizLogic
+- `Adapters/OutgoingAdapters/XxxHttpAdapter.js` — replaces mock, makes HTTP calls
+- `main.js` — wires real adapters into service, starts server
 
 ---
 
