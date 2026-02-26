@@ -10,4 +10,9 @@ describe('LaneGovernorService', () => {
     const service = new LaneGovernorService();
     expect(service.activate()).toBe("OK");
   });
+
+  test('test_bowler_arrived_returns_ack', () => {
+    const service = new LaneGovernorService();
+    expect(service.bowlerArrived()).toBe("OK");
+  });
 });

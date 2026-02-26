@@ -7,28 +7,36 @@
 - Assigning lanes
 - Knowing lane state
 - Scoring
-- Payment (deferred)
+- Payment
 
 ---
 
 ## Lanes Manager
-**Job:** Lets the manager assign lanes and manage the Lane Governors.
+**Job:** Owns all lane state (free/occupied), assigns lanes to bowlers, manages Lane Governors, collects payment via Payment Gateway.
 
 **Not My Job:**
 - Collecting bowler personal details
 - Scoring
-- Payment (deferred)
+- Knowing bowler names (once handed off to a lane)
 
 ---
 
 ## Lane Governor
-**Job:** TBD
+**Job:** Governs the physical lane — activates/deactivates the lane, commands the pinsetter, tracks roll 1 or roll 2, reports pin situation to Bowler At Lane app. Pinsetter control is internal to the Lane Governor and is not a software port.
 
-**Not My Job:** TBD
+**Not My Job:**
+- Knowing the bowler's name
+- Scoring or game rules
+- Payment
+- Lane assignment
 
 ---
 
-## Lane Tablet App
-**Job:** TBD
+## Bowler At Lane App
+**Job:** Lets the bowler register at the lane by typing their name, receives pin situation from Lane Governor, applies scoring rules (pluggable per game type), displays game state to bowler, notifies Lanes Manager when session ends.
 
-**Not My Job:** TBD
+**Not My Job:**
+- Physical lane control
+- Payment
+- Lane assignment
+- Knowing which lane it is running on

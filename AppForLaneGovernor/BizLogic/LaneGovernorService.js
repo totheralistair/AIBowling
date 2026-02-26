@@ -6,6 +6,10 @@ class LaneGovernorService {
   activate() {
     return "OK";
   }
+
+  bowlerArrived() {
+    return "OK";
+  }
 }
 
 module.exports = LaneGovernorService;

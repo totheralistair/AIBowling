@@ -98,12 +98,12 @@ Once all apps have completed nano-slices A and B for all their secondary actors,
 
 ### Step 4 — Nano-Slicing
 
-| App | Slice A (greeting) | Slice B (secondary actors) |
-|---|---|---|
-| AppForCheckin | done | done — MockLanesManager |
-| AppForLanesManager | done | not started — secondary actors: Lane Governor, Payment Gateway |
-| AppForLaneGovernor | not started | not started — secondary actors: Pinsetter |
-| AppForBowlersAtLane | not started | not started — secondary actors: Lane Governor, Lanes Manager |
+| App | Slice A (greeting) | Slice B1 (first secondary actor) | Slice B2 (second secondary actor) |
+|---|---|---|---|
+| AppForCheckin | done | done — MockLanesManager | n/a |
+| AppForLanesManager | done | not started — MockLaneGovernor | not started — MockPaymentGateway |
+| AppForLaneGovernor | done | not started — MockBowlerAtLane | n/a |
+| AppForBowlersAtLane | not started | not started — MockLaneGovernor | not started — MockLanesManager |
 
 ### Step 5 — Full skeleton trace
 - Status: **not started**

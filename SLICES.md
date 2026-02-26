@@ -14,7 +14,7 @@
 | Lanes Manager | 6 | collectPayment notifies Payment Gateway (mock) |
 | Lane Governor | 1 | greeting |
 | Lane Governor | 2 | activate returns ack |
-| Lane Governor | 3 | bowlerArrived notifies Pinsetter (mock) |
+| Lane Governor | 3 | bowlerArrived returns ack |
 | Lane Governor | 4 | pinSituation pushes to Bowler At Lane (mock) |
 | Bowler At Lane | 1 | greeting |
 | Bowler At Lane | 2 | registerBowler returns name |
@@ -95,12 +95,12 @@
 - Test: `test_activate_returns_ack`
 - Status: in progress
 
-### Slice 3 — bowlerArrived notifies Pinsetter (mock)
-- `LaneGovernorService.bowlerArrived()` calls `MockPinsetter.reset()`, returns ack
-- `MockPinsetter` lives in `Adapters/OutgoingAdapters/`
-- Constructor introduced with MockPinsetter
-- Test: `test_bowler_arrived_notifies_pinsetter`
-- Status: pending
+### Slice 3 — bowlerArrived returns ack
+- `LaneGovernorService.bowlerArrived()` returns `"OK"`
+- No secondary actor — pinsetter is internal hardware, not a software port
+- No constructor arguments
+- Test: `test_bowler_arrived_returns_ack`
+- Status: in progress
 
 ### Slice 4 — pinSituation pushes to Bowler At Lane (mock)
 - `LaneGovernorService.pinSituation(pins)` calls `MockBowlerAtLane.receivePinSituation(pins)`, returns pins
