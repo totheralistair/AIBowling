@@ -52,6 +52,7 @@ AppForXxx/
 ### Slice N — Each additional secondary actor
 - Repeat Slice 2 pattern for each new outgoing dependency.
 - One mock per secondary actor, one new test per mock.
+- **Each new secondary actor extends the constructor** — add the new mock as an additional constructor argument alongside existing ones. Do not replace existing constructor arguments.
 
 ## CI — GitHub Actions
 
