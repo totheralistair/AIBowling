@@ -10,4 +10,9 @@ describe('LanesManagerService', () => {
     const service = new LanesManagerService();
     expect(service.checkinBowler("Alice")).toBe("Alice");
   });
+
+  test('test_manager_assigns_lane_returns_name_and_lane_number', () => {
+    const service = new LanesManagerService();
+    expect(service.assignLane("Alice")).toEqual({ name: "Alice", lane: 5 });
+  });
 });
