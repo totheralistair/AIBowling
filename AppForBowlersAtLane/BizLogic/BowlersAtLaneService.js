@@ -1,6 +1,7 @@
 class BowlersAtLaneService {
-  constructor(laneGovernor) {
+  constructor(laneGovernor, lanesManager) {
     this.laneGovernor = laneGovernor;
+    this.lanesManager = lanesManager;
   }
 
   greeting() {
@@ -13,6 +14,10 @@ class BowlersAtLaneService {
 
   bowlerArrived() {
     return this.laneGovernor.bowlerArrived();
+  }
+
+  sessionEnded() {
+    return this.lanesManager.laneFreed();
   }
 }
 

@@ -135,8 +135,9 @@
 - Status: pending
 
 ### Slice 4 — sessionEnded notifies Lanes Manager (mock)
-- `BowlersAtLaneService.sessionEnded()` calls `MockLanesManager.laneFreed()`, returns ack
+- `BowlersAtLaneService.sessionEnded()` calls `lanesManager.laneFreed()`, returns `"OK"`
+- `MockLanesManager.laneFreed()` returns `"OK"`
 - `MockLanesManager` lives in `Adapters/OutgoingAdapters/`
-- Constructor extended with MockLanesManager
+- Constructor extended with `lanesManager` alongside existing `laneGovernor`
 - Test: `test_session_ended_notifies_lanes_manager`
-- Status: pending
+- Status: in progress
