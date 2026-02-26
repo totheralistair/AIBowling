@@ -22,4 +22,9 @@ describe('BowlersAtLaneService', () => {
     const service = new BowlersAtLaneService(new MockLaneGovernor(), new MockLanesManager());
     expect(service.sessionEnded()).toBe("OK");
   });
+
+  test('test_pin_situation_returns_pins', () => {
+    const service = new BowlersAtLaneService();
+    expect(service.pinSituation(7)).toBe(7);
+  });
 });

@@ -1,5 +1,5 @@
 class MockBowlerAtLane {
-  receivePinSituation(pins) {
+  pinSituation(pins) {
     return pins;
   }
 }

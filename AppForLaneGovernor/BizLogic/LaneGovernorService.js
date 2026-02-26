@@ -16,7 +16,7 @@ class LaneGovernorService {
   }
 
   pinSituation(pins) {
-    return this.bowlerAtLane.receivePinSituation(pins);
+    return this.bowlerAtLane.pinSituation(pins);
   }
 }
 

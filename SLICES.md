@@ -20,6 +20,7 @@
 | Bowler At Lane | 2 | registerBowler returns name |
 | Bowler At Lane | 3 | bowlerArrived notifies Lane Governor (mock) |
 | Bowler At Lane | 4 | sessionEnded notifies Lanes Manager (mock) |
+| Bowler At Lane | 5 | pinSituation receives pin data from Lane Governor |
 
 ---
 
@@ -103,8 +104,8 @@
 - Status: in progress
 
 ### Slice 4 — pinSituation pushes to Bowler At Lane (mock)
-- `LaneGovernorService.pinSituation(pins)` calls `bowlerAtLane.receivePinSituation(pins)`, returns `pins`
-- `MockBowlerAtLane.receivePinSituation(pins)` returns `pins`
+- `LaneGovernorService.pinSituation(pins)` calls `bowlerAtLane.pinSituation(pins)`, returns `pins`
+- `MockBowlerAtLane.pinSituation(pins)` returns `pins`
 - `MockBowlerAtLane` lives in `Adapters/OutgoingAdapters/`
 - Constructor introduced with `bowlerAtLane`
 - Test: `test_pin_situation_pushes_to_bowler_at_lane`
@@ -140,4 +141,11 @@
 - `MockLanesManager` lives in `Adapters/OutgoingAdapters/`
 - Constructor extended with `lanesManager` alongside existing `laneGovernor`
 - Test: `test_session_ended_notifies_lanes_manager`
-- Status: in progress
+- Status: done
+
+### Slice 5 — pinSituation receives pin data from Lane Governor
+- `BowlersAtLaneService.pinSituation(pins)` returns `pins`
+- Incoming port — no secondary actor
+- No constructor arguments needed
+- Test: `test_pin_situation_returns_pins`
+- Status: done

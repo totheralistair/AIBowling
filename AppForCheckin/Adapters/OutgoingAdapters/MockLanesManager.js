@@ -1,5 +1,5 @@
 class MockLanesManager {
-  bowlerArrived(name) {
+  checkinBowler(name) {
     return name;
   }
 }

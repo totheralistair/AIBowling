@@ -7,7 +7,9 @@
 - **"Need-To-Know":** No object receives data it doesn't need.
 - **Naming conventions:**
   - Methods that return a result are named after the result: `cost()` not `getCost()`
+  - Method names use active voice: `pinSituation(pins)` not `receivePinSituation(pins)` — verbs like `receive`, `handle`, `process` are passive and describe the implementation, not the event
   - Test cases use long descriptive names: `test_it_returns_a_greeting`, `test_04_can_tag_a_muffin_to_another`
+  - Slice descriptions always use active voice: "laneFreed frees up the lane" not "lane is freed"
 
 ## Folder Structure (per app)
 

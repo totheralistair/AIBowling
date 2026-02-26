@@ -19,6 +19,10 @@ class BowlersAtLaneService {
   sessionEnded() {
     return this.lanesManager.laneFreed();
   }
+
+  pinSituation(pins) {
+    return pins;
+  }
 }
 
 module.exports = BowlersAtLaneService;
