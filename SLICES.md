@@ -127,9 +127,10 @@
 - Status: pending
 
 ### Slice 3 — bowlerArrived notifies Lane Governor (mock)
-- `BowlersAtLaneService.bowlerArrived()` calls `MockLaneGovernor.bowlerArrived()`, returns ack
+- `BowlersAtLaneService.bowlerArrived()` calls `laneGovernor.bowlerArrived()`, returns `"OK"`
+- `MockLaneGovernor.bowlerArrived()` returns `"OK"`
 - `MockLaneGovernor` lives in `Adapters/OutgoingAdapters/`
-- Constructor introduced with MockLaneGovernor
+- Constructor introduced with `laneGovernor`
 - Test: `test_bowler_arrived_notifies_lane_governor`
 - Status: pending
 
